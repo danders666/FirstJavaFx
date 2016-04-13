@@ -12,6 +12,9 @@ package firstproject;
 public class PolioImmu {
     private DataPoint[] fact;
     
+    public DataPoint[] getDataPoints(){
+        return fact;
+    }
     @Override
     public String toString(){
         String outputString = "";

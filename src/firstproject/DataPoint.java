@@ -15,8 +15,12 @@ public class DataPoint {
     public DataPoint() {
     }
     
-    
-    
+    public int getValue(){
+        return Value;
+    }
+    public String getCountry(){
+        return dim.getCountry();
+    }
     @Override
     public String toString() {
         return "" + dim.getCountry() + " in " + dim.getYear() + ": " + Value + "% immunized";

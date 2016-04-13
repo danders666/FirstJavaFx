@@ -7,12 +7,14 @@ package firstproject;
 
 import com.google.gson.Gson;
 import java.net.URL;
+import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 
 /**
@@ -62,6 +64,11 @@ public class MainWindowController implements Initializable {
         Gson myGSON = new Gson();
         PolioImmu dataSet = myGSON.fromJson(str, PolioImmu.class);
         System.out.println(dataSet.toString());
+        
+        XYChart.Series<String, Number> percentImmunized = new XYChart.Series();
+        for(DataPoint d : dataSet.getDataPoints()){
+            percentImmunized.getData().add(new XYChart.Data(d.getCountry(), d.getValue()));
+        }
                 
     }
     
