@@ -15,6 +15,13 @@ public class PolioImmu {
     public DataPoint[] getDataPoints(){
         return fact;
     }
+    public void removeNulls(){
+        for(int i = 0; i<fact.length; i++){
+            if(fact[i].getCountry() == null){
+                fact[i].setNull();
+            }
+        }
+    }
     @Override
     public String toString(){
         String outputString = "";

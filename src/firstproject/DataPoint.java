@@ -21,6 +21,9 @@ public class DataPoint {
     public String getCountry(){
         return dim.getCountry();
     }
+    public void setNull(){
+        this.Value=-1;
+    }
     @Override
     public String toString() {
         return "" + dim.getCountry() + " in " + dim.getYear() + ": " + Value + "% immunized";
