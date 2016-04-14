@@ -64,10 +64,12 @@ public class MainWindowController implements Initializable {
         Gson myGSON = new Gson();
         PolioImmu dataSet = myGSON.fromJson(str, PolioImmu.class);
         System.out.println(dataSet.toString());
-        dataSet.removeNulls();
+        //dataSet.removeNulls();
         XYChart.Series<String, Number> percentImmunized = new XYChart.Series();
         for(DataPoint d : dataSet.getDataPoints()){
+            if(d.getCountry()!=null){
             percentImmunized.getData().add(new XYChart.Data(d.getCountry(), d.getValue()));
+            }
         }
         chart.getData().add(percentImmunized);
          
