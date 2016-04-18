@@ -3,11 +3,13 @@
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="603.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="firstproject.MainWindowController">
    <children>
-      <BarChart fx:id="chart" barGap="1.0" categoryGap="1.0" layoutX="-1.0" legendVisible="false" prefHeight="400.0" prefWidth="603.0" title="Polio Immunizations" titleSide="BOTTOM" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BarChart fx:id="chart" barGap="1.0" categoryGap="1.0" layoutX="-1.0" layoutY="37.0" legendVisible="false" prefHeight="363.0" prefWidth="603.0" title="Polio Immunizations" titleSide="BOTTOM" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="37.0">
         <xAxis>
           <CategoryAxis side="BOTTOM" />
         </xAxis>
@@ -15,5 +17,9 @@
           <NumberAxis side="LEFT" />
         </yAxis>
       </BarChart>
+      <Slider fx:id="minimumSlide" layoutX="15.0" layoutY="21.0" onDragDone="#handleChangeMin" />
+      <Slider fx:id="maximumSlide" layoutX="456.0" layoutY="21.0" onDragDone="#handleChangeMax" />
+      <Label fx:id="minLabel" layoutX="57.0" layoutY="6.0" text="Minimum" />
+      <Label fx:id="maxLabel" layoutX="496.0" layoutY="6.0" text="Maximum" />
    </children>
 </AnchorPane>

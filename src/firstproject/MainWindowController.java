@@ -40,7 +40,14 @@ public class MainWindowController implements Initializable {
     private Label maxLabel;
     @FXML
     private void handleChangeMin(MouseEvent mouse){
-        //blank
+        XYChart.Series<String, Number> percentImmunized = new XYChart.Series();
+        for(DataPoint d : dataSet.getDataPoints()){
+            if(d.getCountry()!=null){
+                if(minimumSlide.get)
+            percentImmunized.getData().add(new XYChart.Data(d.getCountry(), d.getValue()));
+            }
+        }
+        chart.getData().add(percentImmunized);
     }
     @FXML
     private void handleChangeMax(MouseEvent mouse){
