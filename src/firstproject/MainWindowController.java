@@ -16,25 +16,43 @@ import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
+import javafx.scene.input.MouseEvent;
 
 /**
  *
  * @author csstudent
  */
 public class MainWindowController implements Initializable {
-    
-    @FXML
-    private Label label;
-    
+
     @FXML
     private BarChart chart;
     
+    @FXML
+    private Slider minimumSlide;
+    
+    @FXML
+    private Slider maximumSlide;
+    
+    @FXML
+    private Label minLabel;
+    @FXML
+    private Label maxLabel;
+    @FXML
+    private void handleChangeMin(MouseEvent mouse){
+        //blank
+    }
+    @FXML
+    private void handleChangeMax(MouseEvent mouse){
+        //blank
+    }
+    /*
     @FXML
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
         label.setText("Hello World!");
     }
-    
+    */
     @Override
     public void initialize(URL newURL, ResourceBundle rb) {
         String s = "http://apps.who.int/gho/athena/data/GHO/WHS4_544.json?profile=simple&filter=YEAR:1980";
