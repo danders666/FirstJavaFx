@@ -16,8 +16,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.Slider;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 
 /**
  *
@@ -27,19 +31,36 @@ public class MainWindowController implements Initializable {
     private PolioImmu dataSet;
     @FXML
     private BarChart chart;
-    
+    @FXML
+    private MenuBar menu;
+    @FXML
+    private Menu file;
+    @FXML
+    private Menu help;
+    @FXML
+    private MenuItem close;
+    @FXML
+    private MenuItem about;
+    @FXML
+    private BorderPane border;
     @FXML
     private Slider minimumSlide;
-    
     @FXML
     private Slider maximumSlide;
-    
     @FXML
     private Label minLabel;
     @FXML
     private Label maxLabel;
     @FXML
+    
+    private void handleClose(MouseEvent mouse){
+        System.exit(0);
+    }
+    private void handleAbout(MouseEvent mouse){
+        
+    }
     private void handleChangeSlider(MouseEvent mouse){
+        chart.getData().clear();
         XYChart.Series<String, Number> percentImmunized = new XYChart.Series();
         for(DataPoint d : dataSet.getDataPoints()){
             if(d.getCountry()!=null){
@@ -88,7 +109,7 @@ public class MainWindowController implements Initializable {
         Gson myGSON = new Gson();
         dataSet = myGSON.fromJson(str, PolioImmu.class);
         System.out.println(dataSet.toString());
-        //dataSet.removeNulls();
+        
         XYChart.Series<String, Number> percentImmunized = new XYChart.Series();
         for(DataPoint d : dataSet.getDataPoints()){
             if(d.getCountry()!=null){

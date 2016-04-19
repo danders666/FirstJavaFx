@@ -10,7 +10,7 @@ package firstproject;
  * @author csstudent
  */
 public class DataPoint {
-       private DataInfo dim;
+     private DataInfo dim;
     private int Value;
     public DataPoint() {
     }

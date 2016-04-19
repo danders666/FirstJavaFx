@@ -10,7 +10,7 @@ package firstproject;
  * @author csstudent
  */
 public class DataInfo {
-       private String COUNTRY;
+      private String COUNTRY;
     private int YEAR;
     public DataInfo() {
     }

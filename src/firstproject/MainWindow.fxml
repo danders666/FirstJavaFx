@@ -4,8 +4,12 @@
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="603.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="firstproject.MainWindowController">
    <children>
@@ -17,9 +21,24 @@
           <NumberAxis side="LEFT" />
         </yAxis>
       </BarChart>
-      <Slider fx:id="minimumSlide" layoutX="15.0" layoutY="21.0" max="20.0" onDragDone="#handleChangeSlider" />
-      <Slider fx:id="maximumSlide" layoutX="456.0" layoutY="21.0" min="20.0" onMouseReleased="#handleChangeSlider" />
-      <Label fx:id="minLabel" layoutX="57.0" layoutY="6.0" onMouseReleased="#handleChangeSlider" text="Minimum" />
+      <Slider fx:id="minimumSlide" layoutX="15.0" layoutY="21.0" max="50.0" onMouseReleased="#handleChangeSlider" />
+      <Slider fx:id="maximumSlide" layoutX="456.0" layoutY="21.0" min="50.0" onMouseReleased="#handleChangeSlider" />
+      <Label fx:id="minLabel" layoutX="57.0" layoutY="6.0" text="Minimum" />
       <Label fx:id="maxLabel" layoutX="496.0" layoutY="6.0" text="Maximum" />
+      <MenuBar fx:id="menu" layoutX="234.0" layoutY="15.0">
+        <menus>
+          <Menu fx:id="file" mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem fx:id="close" mnemonicParsing="false" onAction="#handleClose" text="Close" />
+            </items>
+          </Menu>
+          <Menu fx:id="help" mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem fx:id="about" mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <BorderPane fx:id="border" prefHeight="400.0" prefWidth="603.0" />
    </children>
 </AnchorPane>
