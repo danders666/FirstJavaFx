@@ -17,9 +17,9 @@
           <NumberAxis side="LEFT" />
         </yAxis>
       </BarChart>
-      <Slider fx:id="minimumSlide" layoutX="15.0" layoutY="21.0" onDragDone="#handleChangeMin" />
-      <Slider fx:id="maximumSlide" layoutX="456.0" layoutY="21.0" onDragDone="#handleChangeMax" />
-      <Label fx:id="minLabel" layoutX="57.0" layoutY="6.0" text="Minimum" />
+      <Slider fx:id="minimumSlide" layoutX="15.0" layoutY="21.0" max="20.0" onDragDone="#handleChangeSlider" />
+      <Slider fx:id="maximumSlide" layoutX="456.0" layoutY="21.0" min="20.0" onMouseReleased="#handleChangeSlider" />
+      <Label fx:id="minLabel" layoutX="57.0" layoutY="6.0" onMouseReleased="#handleChangeSlider" text="Minimum" />
       <Label fx:id="maxLabel" layoutX="496.0" layoutY="6.0" text="Maximum" />
    </children>
 </AnchorPane>

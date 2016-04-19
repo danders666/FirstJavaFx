@@ -24,7 +24,7 @@ import javafx.scene.input.MouseEvent;
  * @author csstudent
  */
 public class MainWindowController implements Initializable {
-
+    private PolioImmu dataSet;
     @FXML
     private BarChart chart;
     
@@ -39,20 +39,19 @@ public class MainWindowController implements Initializable {
     @FXML
     private Label maxLabel;
     @FXML
-    private void handleChangeMin(MouseEvent mouse){
+    private void handleChangeSlider(MouseEvent mouse){
         XYChart.Series<String, Number> percentImmunized = new XYChart.Series();
         for(DataPoint d : dataSet.getDataPoints()){
             if(d.getCountry()!=null){
-                if(minimumSlide.get)
+                if(d.getValue()>=minimumSlide.getValue() && d.getValue()<= maximumSlide.getValue()){
             percentImmunized.getData().add(new XYChart.Data(d.getCountry(), d.getValue()));
             }
         }
-        chart.getData().add(percentImmunized);
+            chart.getData().add(percentImmunized);
+        }
     }
-    @FXML
-    private void handleChangeMax(MouseEvent mouse){
-        //blank
-    }
+        
+    
     /*
     @FXML
     private void handleButtonAction(ActionEvent event) {
@@ -87,7 +86,7 @@ public class MainWindowController implements Initializable {
         scan.close();
         
         Gson myGSON = new Gson();
-        PolioImmu dataSet = myGSON.fromJson(str, PolioImmu.class);
+        dataSet = myGSON.fromJson(str, PolioImmu.class);
         System.out.println(dataSet.toString());
         //dataSet.removeNulls();
         XYChart.Series<String, Number> percentImmunized = new XYChart.Series();
