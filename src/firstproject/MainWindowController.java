@@ -51,14 +51,16 @@ public class MainWindowController implements Initializable {
     private Label minLabel;
     @FXML
     private Label maxLabel;
-    @FXML
     
+    @FXML
     private void handleClose(MouseEvent mouse){
         System.exit(0);
     }
+    @FXML
     private void handleAbout(MouseEvent mouse){
         
     }
+    @FXML   
     private void handleChangeSlider(MouseEvent mouse){
         chart.getData().clear();
         XYChart.Series<String, Number> percentImmunized = new XYChart.Series();
