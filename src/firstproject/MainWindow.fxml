@@ -11,9 +11,26 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="603.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="firstproject.MainWindowController">
+<AnchorPane id="AnchorPane" prefHeight="446.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="firstproject.MainWindowController">
    <children>
-      <BarChart fx:id="chart" barGap="1.0" categoryGap="1.0" layoutX="-1.0" layoutY="37.0" legendVisible="false" prefHeight="363.0" prefWidth="603.0" title="Polio Immunizations" titleSide="BOTTOM" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="37.0">
+      <BorderPane fx:id="border" layoutX="2.0" layoutY="43.0" prefHeight="459.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="43.0">
+         <top>
+            <MenuBar fx:id="menu" prefHeight="29.0" prefWidth="390.0" BorderPane.alignment="CENTER">
+              <menus>
+                <Menu fx:id="file" mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem fx:id="close" mnemonicParsing="false" onAction="#handleClose" text="Close" />
+                  </items>
+                </Menu>
+                <Menu fx:id="help" mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem fx:id="about" mnemonicParsing="false" onAction="#handleAbout" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top></BorderPane>
+      <BarChart fx:id="chart" barGap="1.0" categoryGap="1.0" layoutX="-1.0" layoutY="37.0" legendVisible="false" prefHeight="363.0" prefWidth="694.0" title="Polio Immunizations" titleSide="BOTTOM" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="91.0">
         <xAxis>
           <CategoryAxis side="BOTTOM" />
         </xAxis>
@@ -22,23 +39,8 @@
         </yAxis>
       </BarChart>
       <Slider fx:id="minimumSlide" layoutX="15.0" layoutY="21.0" max="50.0" onMouseReleased="#handleChangeSlider" />
-      <Slider fx:id="maximumSlide" layoutX="456.0" layoutY="21.0" min="50.0" onMouseReleased="#handleChangeSlider" />
+      <Slider fx:id="maximumSlide" layoutX="456.0" layoutY="29.0" min="50.0" onMouseReleased="#handleChangeSlider" />
       <Label fx:id="minLabel" layoutX="57.0" layoutY="6.0" text="Minimum" />
       <Label fx:id="maxLabel" layoutX="496.0" layoutY="6.0" text="Maximum" />
-      <MenuBar fx:id="menu" layoutX="234.0" layoutY="15.0">
-        <menus>
-          <Menu fx:id="file" mnemonicParsing="false" text="File">
-            <items>
-              <MenuItem fx:id="close" mnemonicParsing="false" onAction="#handleClose" text="Close" />
-            </items>
-          </Menu>
-          <Menu fx:id="help" mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem fx:id="about" mnemonicParsing="false" text="About" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
-      <BorderPane fx:id="border" prefHeight="400.0" prefWidth="603.0" />
    </children>
 </AnchorPane>

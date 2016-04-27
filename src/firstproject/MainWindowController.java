@@ -7,7 +7,6 @@ package firstproject;
 
 import com.google.gson.Gson;
 import java.net.URL;
-import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 import javafx.event.ActionEvent;
@@ -15,6 +14,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
@@ -22,6 +23,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.Slider;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.media.AudioClip;
 
 /**
  *
@@ -53,11 +55,16 @@ public class MainWindowController implements Initializable {
     private Label maxLabel;
     
     @FXML
-    private void handleClose(MouseEvent mouse){
+    private void handleClose(ActionEvent mouse){
         System.exit(0);
     }
     @FXML
-    private void handleAbout(MouseEvent mouse){
+    private void handleAbout(ActionEvent mouse){
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Information Box");
+        alert.setContentText("This is information about the percentage of a population given Polio Immunizations");
+
+        alert.showAndWait();
         
     }
     @FXML   
@@ -82,8 +89,12 @@ public class MainWindowController implements Initializable {
         label.setText("Hello World!");
     }
     */
+    //http://216.227.134.162/ost/u.n.-squadron-original-sound-version/giyhxvkdwk/03-forest.mp3
+    //http://downloads.khinsider.com/game-soundtracks/album/u.n.-squadron-original-sound-version/01-front-line-base.mp3
     @Override
     public void initialize(URL newURL, ResourceBundle rb) {
+        AudioClip backgroundMusic = new AudioClip("http://216.227.134.162/ost/u.n.-squadron-original-sound-version/giyhxvkdwk/03-forest.mp3");
+        backgroundMusic.play();
         String s = "http://apps.who.int/gho/athena/data/GHO/WHS4_544.json?profile=simple&filter=YEAR:1980";
         URL myURL = null;
         try {
