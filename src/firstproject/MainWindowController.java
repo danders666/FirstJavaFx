@@ -69,6 +69,8 @@ public class MainWindowController implements Initializable {
     }
     @FXML   
     private void handleChangeSlider(MouseEvent mouse){
+        Singleton.setMinValue(minimumSlide.getValue());
+        Singleton.setMaxValue(maximumSlide.getValue());
         chart.getData().clear();
         XYChart.Series<String, Number> percentImmunized = new XYChart.Series();
         for(DataPoint d : dataSet.getDataPoints()){
@@ -121,7 +123,6 @@ public class MainWindowController implements Initializable {
         
         Gson myGSON = new Gson();
         dataSet = myGSON.fromJson(str, PolioImmu.class);
-        System.out.println(dataSet.toString());
         
         XYChart.Series<String, Number> percentImmunized = new XYChart.Series();
         for(DataPoint d : dataSet.getDataPoints()){
